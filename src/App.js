@@ -36,7 +36,7 @@ function App() {
       <Cabecalho searchParam={searchParam} setSearchParam={setSearchParam} />
       <div className="container-fluid">
         {loading && <p className="text-center">Carregando...</p>}
-        <Artigos artigos={artigos} />
+        {!loading && <Artigos artigos={artigos} />}
       </div>
     </div>
   );

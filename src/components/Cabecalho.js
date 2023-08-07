@@ -13,7 +13,7 @@ function Cabecalho({ searchParam, setSearchParam }) {
 
         <div className="col-2">
           <button
-            class={"btn"}
+            class={"btn border-0"}
             href="#"
             disabled={searchParam.page === 1}
             onClick={() => {
@@ -24,7 +24,7 @@ function Cabecalho({ searchParam, setSearchParam }) {
             Anterior
           </button>
           <button
-            class={"btn"}
+            class={"btn border-0"}
             href="#"
             onClick={() =>
               setSearchParam({ ...searchParam, page: searchParam.page + 1 })
