@@ -10,7 +10,7 @@ function App() {
   const [theme, setTheme] = useState("light");
   const [loading, setLoading] = useState(false);
   const [artigos, setArtigos] = useState([]);
-  const [searchParam, setSearchParam] = useState({page: 1, limit: 12});
+  const [searchParam, setSearchParam] = useState({page: 1, limit: 20});
   let baseUrl = "https://picsum.photos/v2/list";
   const handleSearch = () => {
     setLoading(true);

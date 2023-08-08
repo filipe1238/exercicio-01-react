@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+
 import "./cabecalho.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 function Cabecalho({ searchParam, setSearchParam }) {
   /*   const [active, setActive] = useState(1); */
@@ -7,11 +10,12 @@ function Cabecalho({ searchParam, setSearchParam }) {
   return (
     <div class="container-fluid buttons">
       <div class="nav justify-content-center">
-        <div className="col-10">
+        
+        <div className="col-12">
           <p className="text-center"> Página {searchParam.page}</p>
         </div>
 
-        <div className="col-2">
+        <div className="col-0">
           <button
             class={"btn border-0"}
             href="#"
@@ -21,7 +25,7 @@ function Cabecalho({ searchParam, setSearchParam }) {
               setSearchParam({ ...searchParam, page: searchParam.page - 1 });
             }}
           >
-            Anterior
+           <FontAwesomeIcon icon={faArrowLeft} />  
           </button>
           <button
             class={"btn border-0"}
@@ -30,7 +34,7 @@ function Cabecalho({ searchParam, setSearchParam }) {
               setSearchParam({ ...searchParam, page: searchParam.page + 1 })
             }
           >
-            Próximo
+             <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
       </div>
