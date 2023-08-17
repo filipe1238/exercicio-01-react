@@ -6,7 +6,7 @@ function Artigos({ artigos }) {
       <div className="row">
         {artigos.map((artigo, index) => (
           <div className="col-3" key={artigo.id}>
-            <Artigo img={artigo.download_url} texto={artigo.author} height={artigo.height} width={artigo.width} />
+            <Artigo id={artigo.id} img={artigo.download_url} texto={artigo.author} height={artigo.height} width={artigo.width} />
           </div>
         ))}
       </div>

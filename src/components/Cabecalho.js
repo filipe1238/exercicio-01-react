@@ -8,8 +8,8 @@ function Cabecalho({ searchParam, setSearchParam }) {
   /*   const [active, setActive] = useState(1); */
 
   return (
-    <div class="container-fluid buttons">
-      <div class="nav justify-content-center">
+    <div className="container-fluid buttons">
+      <div className="nav justify-content-center">
         
         <div className="col-12">
           <p className="text-center"> Página {searchParam.page}</p>
@@ -17,7 +17,7 @@ function Cabecalho({ searchParam, setSearchParam }) {
 
         <div className="col-0">
           <button
-            class={"btn border-0"}
+            className={"btn border-0"}
             href="#"
             disabled={searchParam.page === 1}
             onClick={() => {
@@ -28,7 +28,7 @@ function Cabecalho({ searchParam, setSearchParam }) {
            <FontAwesomeIcon icon={faArrowLeft} />  
           </button>
           <button
-            class={"btn border-0"}
+            className={"btn border-0"}
             href="#"
             onClick={() =>
               setSearchParam({ ...searchParam, page: searchParam.page + 1 })
