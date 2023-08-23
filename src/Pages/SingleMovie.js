@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import MoviesService from "../services/MoviesService";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import { MovieDetail } from "../components/MovieDetail";
 
 function SingleMovie() {
   const [loading, setLoading] = useOutletContext();
   const [movie, setMovie] = useState({});
-
-  const id = window.location.pathname.split("/")[2];
+  const params = useParams();
 
   const getMovie = async () => {
-    const { data } = await MoviesService.getMovie(id);
+    const { data } = await MoviesService.getMovie(params.id);
     setMovie(data);
     setLoading(false);
   };
@@ -20,7 +19,6 @@ function SingleMovie() {
     getMovie();
   }, []);
 
-  console.log(movie);
   return (
     <>
       {loading && <p className="text-center">Carregando...</p>}

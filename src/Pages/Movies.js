@@ -1,35 +1,32 @@
 import React, { useEffect, useState } from "react";
-import MoviesService from "../services/MoviesService";
 import { useOutletContext } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
+import useGetMovies from "../Hooks/useGetMovies";
+import SearchMovies from "../components/SearchMovies";
+import useSearchMovieByTitle from "../Hooks/useSearchMovieByTitle";
+import MoviesList from "../components/MoviesList";
 
 function Movies() {
+  const [movieTitle, setMovieTitle] = useState("");
   const [loading, setLoading] = useOutletContext();
-  const [movies, setMovies] = useState([]);
+  const movies = useGetMovies();
+  const searchResults = useSearchMovieByTitle(movieTitle);
 
-  const getMovies = async () => {
-    const {
-      data: { results },
-    } = await MoviesService.getMovies();
-    setMovies(results);
-    setLoading(false);
+  const onSearch = (movieTitle) => {
+    setMovieTitle(movieTitle);
   };
 
-  useEffect(() => {
-    setLoading(true);
-    getMovies();
-  }, []);
   return (
     <>
       <div className="container-fluid">
         <div className="row">
+          {<SearchMovies onSearch={onSearch} />}
           {loading && <p className="text-center">Carregando...</p>}
-          {!loading &&
-            movies.map((artigo, index) => (
-              <div className="col-3" key={artigo.id}>
-                <MovieCard {...artigo} />
-              </div>
-            ))}
+          {!loading && (
+            <MoviesList
+              movies={searchResults.length > 0 ? searchResults : movies}
+            />
+          )}
         </div>
       </div>
     </>

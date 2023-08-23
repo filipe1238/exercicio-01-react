@@ -17,4 +17,12 @@ export default class MoviesService {
     let url = baseUrlWithPath(`movie/${id}`);
     return axios.get(url);
   }
+
+  static searchMoviesByQuery(query) {
+    return axios.get(baseUrlWithPath("search/movie"), {
+      params: {
+        query: query,
+      },
+    });
+  }
 }
