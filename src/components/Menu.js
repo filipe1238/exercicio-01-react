@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import ThemeButton from "./ThemeButton";
 
 function Menu({ theme, setTheme }) {
@@ -10,6 +10,7 @@ function Menu({ theme, setTheme }) {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link href="/wallpapers">Wallpapers</Nav.Link>
+          <Nav.Link href="/movies">Movies</Nav.Link>
         </Nav>
         <ThemeButton theme={theme} setTheme={setTheme} />
       </Navbar.Collapse>
