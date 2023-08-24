@@ -1,16 +1,12 @@
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-function Footer({searchParam, setSearchParam}) {
+function Footer() {
   return (
-    <footer className="text-end">
-        <button className="btn "onClick={() =>
-              setSearchParam({ ...searchParam, page: searchParam.page + 1 })
-            }>
-          Próxima <FontAwesomeIcon icon={faArrowRight} />
-        </button>
-      </footer>
+    <footer className="bg-body-secondary text-center text-lg-start">
+        <div className="text-center p-3">
+            © 2023 by Name of Template. Proudly created with React
+        </div>
+    </footer>
   )
 }
 

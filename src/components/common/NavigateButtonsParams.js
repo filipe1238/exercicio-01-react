@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import "./cabecalho.css";
+import "./navigateButtonsParams.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-function Cabecalho({ searchParam, setSearchParam }) {
+function NavigateButtonsParams({ searchParam, setSearchParam }) {
   /*   const [active, setActive] = useState(1); */
 
   return (
@@ -42,4 +42,4 @@ function Cabecalho({ searchParam, setSearchParam }) {
   );
 }
 
-export default Cabecalho;
+export default NavigateButtonsParams;

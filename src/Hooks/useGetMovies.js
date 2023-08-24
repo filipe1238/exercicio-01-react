@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import MoviesService from '../services/MoviesService';
 import { useOutletContext } from 'react-router-dom';
 
-function useGetMovies() {
+function useGetMovies(params) {
     const [loading, setLoading] = useOutletContext();
     const [movies, setMovies] = useState([]);
 
     const getMovies = async () => {
+      
       const {
         data: { results },
-      } = await MoviesService.getMovies();
+      } = await MoviesService.getPopularMovies(params);
       setMovies(results);
       setLoading(false);
     };
@@ -17,7 +18,7 @@ function useGetMovies() {
     useEffect(() => {
       setLoading(true);
       getMovies();
-    }, []);
+    }, [params]);
     
   return movies;
 }

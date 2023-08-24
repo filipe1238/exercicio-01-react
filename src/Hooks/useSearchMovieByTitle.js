@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import MoviesService from "../services/MoviesService";
 import { useOutletContext } from "react-router-dom";
 
-function useSearchMovieByTitle(movieTitle) {
+function useSearchMovieByParams(params) {
   const [loading, setLoading] = useOutletContext();
   const [searchResults, setSearchResults] = React.useState([]);
 
   useEffect(() => {
     setLoading(true);
-    if (movieTitle) {
-      MoviesService.searchMoviesByQuery(movieTitle)
+    if (params) {
+      MoviesService.searchMoviesByQueryParams(params)
         .then((response) => {
           setSearchResults(response.data.results);
         })
@@ -17,9 +17,9 @@ function useSearchMovieByTitle(movieTitle) {
           setLoading(false);
         });
     }
-  }, [movieTitle]);
+  }, [params]);
 
   return searchResults;
 }
 
-export default useSearchMovieByTitle;
+export default useSearchMovieByParams;

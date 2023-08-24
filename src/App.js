@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Menu from "./components/menu/Menu";
 import { Outlet } from "react-router";
+import Footer from "./components/menu/Footer";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <section className="page-detail">
         <Outlet context={[loading, setLoading]} />
       </section>
+      <Footer />
     </div>
   );
 }

@@ -9,8 +9,10 @@ export default class MoviesService {
     return axios.get(baseUrlWithPath("authentication"));
   }
 
-  static getMovies() {
-    return axios.get(baseUrlWithPath("movie/popular"));
+  static getPopularMovies(params) {
+    return axios.get(baseUrlWithPath("movie/popular"), {
+      params,
+    });
   }
 
   static getMovie(id) {
@@ -18,11 +20,9 @@ export default class MoviesService {
     return axios.get(url);
   }
 
-  static searchMoviesByQuery(queryParam) {
+  static searchMoviesByQueryParams(params) {
     return axios.get(baseUrlWithPath("search/movie"), {
-      params: {
-        query: queryParam,
-      },
+      params,
     });
   }
 }

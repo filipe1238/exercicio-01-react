@@ -2,32 +2,48 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import useGetMovies from "../Hooks/useGetMovies";
 import SearchMovies from "../components/movies/SearchMovies";
-import useSearchMovieByTitle from "../Hooks/useSearchMovieByTitle";
 import MoviesList from "../components/movies/MoviesList";
 import Loading from "../components/common/Loading";
+import useSearchMovieByParams from "../Hooks/useSearchMovieByTitle";
 
 function Movies() {
-  const [movieTitle, setMovieTitle] = useState("");
+  const [searchParam, setSearchParam] = useState({
+    page: 1,
+    limit: 20,
+    query: "",
+    adult: false,
+  });
   const [loading, setLoading] = useOutletContext();
-  const movies = useGetMovies();
-  const searchResults = useSearchMovieByTitle(movieTitle);
-
-  const onSearch = (movieTitle) => {
-    setMovieTitle(movieTitle);
-  };
+  const movies = useGetMovies(searchParam);
+  const searchResults = useSearchMovieByParams(searchParam);
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          {<SearchMovies onSearch={onSearch} />}
-          {loading && <Loading />}
-          {!loading && (
-            <MoviesList
-              movies={searchResults.length > 0 ? searchResults : movies}
-            />
-          )}
-        </div>
+      <div className="row">
+        {
+          <SearchMovies
+            searchParam={searchParam}
+            setSearchParam={setSearchParam}
+          />
+        }
+        {loading && <Loading />}
+        {!loading &&
+          (searchResults.length && searchResults.length > 0 ? (
+            <>
+              <h5 className="text-center">
+                Mostrando resultados de pesquisa para:{" "}
+                <b>{searchParam.query}</b>
+              </h5>
+              <MoviesList movies={searchResults} />
+            </>
+          ) : (
+            <>
+              <h5 className="text-center">
+                Sem filtros de pesquisa, exibindo mais populares
+              </h5>
+              <MoviesList movies={movies} />
+            </>
+          ))}
       </div>
     </>
   );

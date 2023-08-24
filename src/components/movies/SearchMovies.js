@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //find icon
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import NavigateButtonsParams from "../common/NavigateButtonsParams";
 
-function SearchMovies({ onSearch }) {
+function SearchMovies({ searchParam, setSearchParam }) {
   const [search, setSearch] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmitQuery = (e) => {
     e.preventDefault();
-    onSearch(search);
+    setSearchParam({ ...searchParam, page: 1, query: search });
   };
+
   return (
     <>
-      <form className="form-inline my-2 mb-5" onSubmit={(e) => handleSubmit(e)}>
+      <form
+        className="form-inline my-2"
+        onSubmit={(e) => handleSubmitQuery(e)}
+      >
         <div className="input-group">
           <input
             type="text"
@@ -27,6 +32,10 @@ function SearchMovies({ onSearch }) {
           </button>
         </div>
       </form>
+      <NavigateButtonsParams
+        searchParam={searchParam}
+        setSearchParam={setSearchParam}
+      />
     </>
   );
 }

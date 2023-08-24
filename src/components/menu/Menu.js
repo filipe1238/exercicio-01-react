@@ -11,6 +11,7 @@ function Menu({ theme, setTheme }) {
         <Nav className="me-auto">
           <Nav.Link href="/wallpapers">Wallpapers</Nav.Link>
           <Nav.Link href="/movies">Movies</Nav.Link>
+          <Nav.Link href="/about">About</Nav.Link>
         </Nav>
         <ThemeButton theme={theme} setTheme={setTheme} />
       </Navbar.Collapse>
