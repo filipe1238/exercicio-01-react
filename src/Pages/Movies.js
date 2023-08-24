@@ -19,7 +19,6 @@ function Movies() {
 
   return (
     <>
-      <div className="row">
         {
           <SearchMovies
             searchParam={searchParam}
@@ -41,10 +40,10 @@ function Movies() {
               <h5 className="text-center">
                 Sem filtros de pesquisa, exibindo mais populares
               </h5>
+              
               <MoviesList movies={movies} />
             </>
           ))}
-      </div>
     </>
   );
 }

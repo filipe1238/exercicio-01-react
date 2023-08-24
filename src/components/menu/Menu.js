@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import ThemeButton from "./ThemeButton";
 
-function Menu({ theme, setTheme }) {
+function Menu() {
   return (
     <Navbar expand="lg" className="bg-body-secondary">
       <Navbar.Brand href="/">Exercicio</Navbar.Brand>
@@ -13,7 +13,7 @@ function Menu({ theme, setTheme }) {
           <Nav.Link href="/movies">Movies</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
         </Nav>
-        <ThemeButton theme={theme} setTheme={setTheme} />
+        <ThemeButton />
       </Navbar.Collapse>
     </Navbar>
   );

@@ -1,22 +1,20 @@
-import { useState } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
 import "./App.css";
-import Menu from "./components/menu/Menu";
-import { Outlet } from "react-router";
-import Footer from "./components/menu/Footer";
-
+import { ThemeContext } from "./context/ThemeContext";
+import Page from "./Page";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
-  const [loading, setLoading] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const value = { theme, setTheme };
+  
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   return (
-    <div data-bs-theme={theme} className={`bg-${theme}`}>
-      <Menu theme={theme} setTheme={setTheme} />
-      <section className="page-detail">
-        <Outlet context={[loading, setLoading]} />
-      </section>
-      <Footer />
-    </div>
+    <ThemeContext.Provider value={value}>
+      <Page />
+    </ThemeContext.Provider>
   );
 }
 
