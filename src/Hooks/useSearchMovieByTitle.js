@@ -9,10 +9,13 @@ function useSearchMovieByTitle(movieTitle) {
   useEffect(() => {
     setLoading(true);
     if (movieTitle) {
-      MoviesService.searchMoviesByQuery(movieTitle).then((response) => {
-        setSearchResults(response.data.results);
-        setLoading(false);
-      });
+      MoviesService.searchMoviesByQuery(movieTitle)
+        .then((response) => {
+          setSearchResults(response.data.results);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     }
   }, [movieTitle]);
 

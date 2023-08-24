@@ -1,7 +1,5 @@
 import React from "react";
 import "./artigo.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faHeartCircleMinus } from "@fortawesome/free-solid-svg-icons";
 
 function Artigo({id, img, texto, height, width }) {
   let url = new URL(img);

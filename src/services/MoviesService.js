@@ -18,10 +18,10 @@ export default class MoviesService {
     return axios.get(url);
   }
 
-  static searchMoviesByQuery(query) {
+  static searchMoviesByQuery(queryParam) {
     return axios.get(baseUrlWithPath("search/movie"), {
       params: {
-        query: query,
+        query: queryParam,
       },
     });
   }

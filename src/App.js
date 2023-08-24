@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Menu from "./components/Menu";
+import Menu from "./components/menu/Menu";
 import { Outlet } from "react-router";
 
 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import MovieCard from "../components/MovieCard";
 import useGetMovies from "../Hooks/useGetMovies";
-import SearchMovies from "../components/SearchMovies";
+import SearchMovies from "../components/movies/SearchMovies";
 import useSearchMovieByTitle from "../Hooks/useSearchMovieByTitle";
-import MoviesList from "../components/MoviesList";
+import MoviesList from "../components/movies/MoviesList";
+import Loading from "../components/common/Loading";
 
 function Movies() {
   const [movieTitle, setMovieTitle] = useState("");
@@ -21,7 +21,7 @@ function Movies() {
       <div className="container-fluid">
         <div className="row">
           {<SearchMovies onSearch={onSearch} />}
-          {loading && <p className="text-center">Carregando...</p>}
+          {loading && <Loading />}
           {!loading && (
             <MoviesList
               movies={searchResults.length > 0 ? searchResults : movies}

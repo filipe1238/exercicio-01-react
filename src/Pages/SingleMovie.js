@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MoviesService from "../services/MoviesService";
 import { useOutletContext, useParams } from "react-router-dom";
-import { MovieDetail } from "../components/MovieDetail";
+import { MovieDetail } from "../components/movies/MovieDetail";
+import Loading from "../components/common/Loading";
 
 function SingleMovie() {
   const [loading, setLoading] = useOutletContext();
@@ -21,7 +22,7 @@ function SingleMovie() {
 
   return (
     <>
-      {loading && <p className="text-center">Carregando...</p>}
+      {loading && <Loading />}
       {!loading && <MovieDetail {...movie} />}
     </>
   );
