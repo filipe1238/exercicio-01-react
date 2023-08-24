@@ -5,7 +5,7 @@ import ThemeButton from "./ThemeButton";
 function Menu({ theme, setTheme }) {
   return (
     <Navbar expand="lg" className="bg-body-secondary">
-      <Navbar.Brand href="/">Exercicio 1</Navbar.Brand>
+      <Navbar.Brand href="/">Exercicio</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
