@@ -2,7 +2,7 @@ import React from "react";
 import ImageDownloader from "../common/ImageDownloader";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
-function ImageDetail({ wallpaper, download }) {
+function ImageDetail({ wallpaper }) {
   return (
     <div className="container-fluid mt-3">
       <div className="row">
