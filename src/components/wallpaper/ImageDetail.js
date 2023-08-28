@@ -3,14 +3,15 @@ import ImageDownloader from "../common/ImageDownloader";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
 function ImageDetail({ wallpaper }) {
+  // responsive page for image detail
   return (
     <div className="container-fluid mt-3">
       <div className="row">
-        <div className="d-flex align-items-end flex-column">
-          <div className="p-0">
+        <div className="d-flex justify-content-between">
+          <div className="p-1">
             <h3>By {wallpaper.author}</h3>
           </div>
-          <div className="p-2">
+          <div className="p-1">
             <Dropdown>
               <Dropdown.Toggle variant="btn btn-outline-secondary">
                 Download
@@ -21,6 +22,7 @@ function ImageDetail({ wallpaper }) {
               </Dropdown.Menu>
             </Dropdown>
           </div>
+          </div>
           <div className="text-center">
             <div className="d-flex justify-content-center">
               <img
@@ -29,12 +31,11 @@ function ImageDetail({ wallpaper }) {
                 alt={wallpaper.author}
               />
             </div>
-
             <p>
               {wallpaper.width} x {wallpaper.height}
             </p>
           </div>
-        </div>
+        
       </div>
     </div>
   );
